@@ -1,62 +1,56 @@
-# MissionSpace Agent Skill (Cross-Agent)
+# MissionSpace Agent Skill
 
-This repository packages MissionSpace as an Agent Skills open-standard skill so it can be used by multiple coding agents.
+This repository contains one installable MissionSpace skill using the Agent Skills format.
 
-Canonical skill directory:
+Skill path in this repo:
 
 - `skills/missionspace`
 
-The skill has been structured and documented for broad compatibility (including OpenAI Codex and Claude Code).
+It is designed to work in OpenAI Codex, Claude Code, and other Agent-Skills-compatible tools.
 
 ## Repository Layout
 
-- `skills/missionspace/SKILL.md`: main skill instructions + metadata
+- `skills/missionspace/SKILL.md`: main instructions and metadata
 - `skills/missionspace/references/backend-api/`: bundled backend API docs snapshot
 - `skills/missionspace/scripts/sync_backend_api_docs.sh`: snapshot sync helper
-- `skills/missionspace/agents/openai.yaml`: optional Codex-specific UI metadata
+- `skills/missionspace/agents/openai.yaml`: optional Codex-specific metadata
 
 ## Install in OpenAI Codex
 
-Install directly from this repository path:
-
 ```bash
-$skill-installer install https://github.com/<owner>/<repo>/tree/main/skills/missionspace
+$skill-installer install https://github.com/aarroisi/missionspace_skill/tree/main/skills/missionspace
 ```
+
+If you fork this repo, replace the GitHub owner/repo in the URL.
 
 ## Install in Claude Code
 
-Claude Code reads skills from `~/.claude/skills/<skill-name>/SKILL.md` (personal) or `.claude/skills/<skill-name>/SKILL.md` (project).
+Claude Code loads skills from `~/.claude/skills/<skill-name>/SKILL.md` (personal) or `.claude/skills/<skill-name>/SKILL.md` (project).
 
-Example install from this repo clone:
+From this repo root:
 
 ```bash
 mkdir -p ~/.claude/skills
 cp -R skills/missionspace ~/.claude/skills/missionspace
 ```
 
-## Install in Other Agent-Skills-Compatible Tools
+## Install in Other Compatible Agents
 
-Copy the whole `skills/missionspace` directory into whatever skill path your tool scans.
-
-Requirements for portability are already met:
-
-- skill folder with `SKILL.md`
-- valid frontmatter and open-standard structure
-- optional resources under `references/`, `scripts/`, and `agents/`
+Copy `skills/missionspace` into your agent's configured skills directory.
 
 ## Keep References in Sync
 
-Run from repo root:
+From this repo root:
 
 ```bash
 ./skills/missionspace/scripts/sync_backend_api_docs.sh
 ```
 
-Default sync source path:
+Default source path (when this repo is next to the `missionspace` repo):
 
-- sibling repo: `../missionspace/server/docs/backend-api`
+- `../missionspace/server/docs/backend-api`
 
-Or provide a custom source path:
+Or pass an explicit source path:
 
 ```bash
 ./skills/missionspace/scripts/sync_backend_api_docs.sh /absolute/path/to/missionspace/server/docs/backend-api
@@ -64,5 +58,5 @@ Or provide a custom source path:
 
 ## Notes
 
-- `references/backend-api` is a portability snapshot.
-- Sync before publishing updates when MissionSpace backend contracts change.
+- `skills/missionspace/references/backend-api` is a portable snapshot.
+- Run sync before publishing when MissionSpace backend docs change.
