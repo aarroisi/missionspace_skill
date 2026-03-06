@@ -1,0 +1,7 @@
+interface:
+  display_name: "MissionSpace"
+  short_description: "MissionSpace API and realtime operating guide"
+  default_prompt: "Use this skill to safely operate MissionSpace APIs and websocket channels."
+
+policy:
+  allow_implicit_invocation: true
