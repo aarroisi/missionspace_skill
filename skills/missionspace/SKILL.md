@@ -1,6 +1,9 @@
 ---
 name: missionspace
 description: Use this skill when tasks involve MissionSpace APIs, auth/scopes, data model, or realtime channels. Do not use for generic non-MissionSpace coding tasks.
+compatibility: Agent Skills open standard; tested with OpenAI Codex and Claude Code.
+metadata:
+  version: "0.2.0"
 ---
 
 # MissionSpace Agent Skill
@@ -31,9 +34,15 @@ If these references are stale, sync from the MissionSpace repo using:
 ./scripts/sync_backend_api_docs.sh
 ```
 
-Default source path assumed by the script:
+Default source path assumed by the script in this repository layout:
 
 - sibling repo: `../missionspace/server/docs/backend-api`
+
+If the skill is installed elsewhere (for example `~/.claude/skills/missionspace`), pass an explicit source path:
+
+```bash
+./scripts/sync_backend_api_docs.sh /absolute/path/to/missionspace/server/docs/backend-api
+```
 
 ## Core Model and Terms
 

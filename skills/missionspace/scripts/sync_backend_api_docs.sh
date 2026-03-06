@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 DEST_DIR="$SKILL_ROOT/references/backend-api"
 
-DEFAULT_SOURCE="$SKILL_ROOT/../missionspace/server/docs/backend-api"
+DEFAULT_SOURCE="$SKILL_ROOT/../../../missionspace/server/docs/backend-api"
 SOURCE_DIR="${1:-$DEFAULT_SOURCE}"
 
 if [[ ! -d "$SOURCE_DIR" ]]; then
